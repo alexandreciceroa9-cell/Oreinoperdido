@@ -1,573 +1,250 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>O Reino Perdido</title>
+<title>Sobrevivência Zumbi</title>
 
 <style>
 
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Verdana,sans-serif;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
 }
+
 
 body{
 
-overflow:hidden;
-height:100vh;
-width:100vw;
+    height:100vh;
+    overflow:hidden;
 
-/* background image updated to the user-provided URL */
-background:url("https://chatgpt.com/s/m_6a63b200295c81919e8acff38ee2f779") center center fixed;
-background-size:cover;
-background-repeat:no-repeat;
+    background:
+    linear-gradient(
+    rgba(0,0,0,0.75),
+    rgba(0,0,0,0.95)
+    ),
+    url("https://images.unsplash.com/photo-1518709268805-4e9042af9f23")
+    center/cover;
 
-display:flex;
-justify-content:center;
-align-items:center;
+    display:flex;
+    justify-content:center;
+    align-items:center;
 
-position:relative;
-
-animation:zoom 25s infinite alternate;
-
-}
-
-@keyframes zoom{
-
-0%{
-background-size:100%;
-}
-
-100%{
-background-size:110%;
-}
+    color:white;
 
 }
 
-#particulas{
 
-position:absolute;
+.container{
 
-top:0;
-left:0;
-
-width:100%;
-height:100%;
-
-overflow:hidden;
-
-pointer-events:none;
-
-z-index:2;
+    text-align:center;
+    animation:entrada 2s;
 
 }
 
-.particula{
 
-position:absolute;
+h1{
 
-width:4px;
-height:4px;
+    font-size:55px;
+    color:#ff0000;
 
-background:#ffd84d;
+    text-shadow:
+    0 0 10px red,
+    0 0 30px black;
 
-border-radius:50%;
-
-box-shadow:
-0 0 10px gold,
-0 0 20px gold,
-0 0 40px gold;
-
-animation:subir linear infinite;
-
-opacity:.8;
+    margin-bottom:15px;
 
 }
 
-@keyframes subir{
 
-0%{
+p{
 
-transform:translateY(100vh);
+    color:#ccc;
+    font-size:20px;
+    margin-bottom:40px;
+
+}
+
+
+
+button{
+
+    width:280px;
+
+    padding:15px;
+
+    margin:12px;
+
+    font-size:22px;
+
+    color:white;
+
+    background:#111;
+
+    border:2px solid #ff0000;
+
+    border-radius:12px;
+
+    cursor:pointer;
+
+    transition:0.3s;
+
+}
+
+
+
+button:hover{
+
+    background:#ff0000;
+
+    transform:scale(1.1);
+
+}
+
+
+
+@keyframes entrada{
+
+from{
 
 opacity:0;
+transform:translateY(-50px);
 
 }
 
-20%{
+to{
 
 opacity:1;
-
-}
-
-100%{
-
-transform:translateY(-120vh);
-
-opacity:0;
+transform:translateY(0);
 
 }
 
 }
 
-.menu{
+
+
+.nevoa{
 
 position:absolute;
 
-top:50%;
+width:200%;
+height:100%;
 
-left:50%;
+background:
+radial-gradient(
+transparent,
+rgba(0,0,0,.8)
+);
 
-transform:translate(-50%,-50%);
-
-display:flex;
-
-flex-direction:column;
-
-align-items:center;
-
-gap:18px;
-
-z-index:5;
+animation:mover 10s infinite alternate;
 
 }
 
-.titulo{
 
-font-size:85px;
 
-font-weight:bold;
+@keyframes mover{
 
-color:#ffdd55;
+from{
 
-text-shadow:
-
-0 0 10px #fff,
-
-0 0 20px gold,
-
-0 0 40px orange,
-
-0 0 80px orange;
-
-animation:brilho 2s infinite alternate;
-
-margin-bottom:35px;
+transform:translateX(-20%);
 
 }
 
-@keyframes brilho{
+to{
 
-0%{
-
-filter:brightness(100%);
+transform:translateX(20%);
 
 }
 
-100%{
-
-filter:brightness(180%);
-
 }
 
-}.botao{
-
-width:460px;
-
-height:72px;
-
-border:3px solid #b8860b;
-
-border-radius:18px;
-
-background:linear-gradient(#3a2a12,#151515);
-
-color:#ffd76b;
-
-font-size:30px;
-
-font-weight:bold;
-
-cursor:pointer;
-
-transition:.25s;
-
-box-shadow:
-
-0 0 10px rgba(255,215,0,.5),
-
-inset 0 0 15px rgba(255,255,255,.08);
-
-letter-spacing:1px;
-
-display:flex;
-
-align-items:center;
-
-justify-content:center;
-
-}
-
-.botao:hover{
-
-transform:scale(1.08);
-
-background:linear-gradient(#6f4c17,#2d2d2d);
-
-box-shadow:
-
-0 0 20px gold,
-
-0 0 40px orange,
-
-0 0 60px gold;
-
-}
-
-.botao:active{
-
-transform:scale(.96);
-
-}
-
-.botao.active{
-  transform:scale(1.04);
-  box-shadow:0 0 30px gold;
-}
-
-.icones{
-
-position:absolute;
-
-top:20px;
-
-right:20px;
-
-display:flex;
-
-gap:15px;
-
-z-index:6;
-
-}
-
-.icone{
-
-width:65px;
-
-height:65px;
-
-border-radius:50%;
-
-background:rgba(0,0,0,.6);
-
-border:2px solid gold;
-
-display:flex;
-
-justify-content:center;
-
-align-items:center;
-
-font-size:30px;
-
-color:gold;
-
-cursor:pointer;
-
-transition:.3s;
-
-box-shadow:0 0 15px rgba(255,215,0,.5);
-
-}
-
-.icone:hover{
-
-transform:rotate(15deg) scale(1.12);
-
-box-shadow:
-
-0 0 20px gold,
-
-0 0 35px orange;
-
-}
-
-.rodape{
-
-position:absolute;
-
-bottom:25px;
-
-right:25px;
-
-z-index:6;
-
-}
-
-.recompensa{
-
-width:260px;
-
-height:75px;
-
-border-radius:15px;
-
-border:2px solid gold;
-
-background:rgba(20,20,20,.85);
-
-color:#ffd84d;
-
-font-size:24px;
-
-font-weight:bold;
-
-cursor:pointer;
-
-transition:.3s;
-
-}
-
-.recompensa:hover{
-
-transform:scale(1.08);
-
-box-shadow:0 0 25px gold;
-
-}
-
-/* overlay shown in portrait mode */
-#rotateOverlay{
-  position:fixed;
-  inset:0;
-  display:none;
-  align-items:center;
-  justify-content:center;
-  background:rgba(0,0,0,0.9);
-  color:#ffd84d;
-  z-index:9999;
-  text-align:center;
-  padding:20px;
-  font-size:24px;
-}
-
-#rotateOverlay p{
-  max-width:520px;
-  line-height:1.4;
-}
-
-/* when in portrait, reduce background movement and block interaction */
-.portrait {
-  overflow:auto;
-}
-.portrait #particulas,
-.portrait .menu,
-.portrait .icones,
-.portrait .rodape{
-  filter:blur(2px);
-  pointer-events:none;
-  user-select:none;
-}
-
-@media(max-width:900px){
-
-.titulo{
-
-font-size:58px;
-
-}
-
-.botao{
-
-width:330px;
-
-height:62px;
-
-font-size:22px;
-
-}
-
-.recompensa{
-
-width:190px;
-
-font-size:18px;
-
-}
-
-.icone{
-
-width:55px;
-
-height:55px;
-
-font-size:24px;
-
-}
-
-#rotateOverlay{font-size:20px}
-
-}
 
 </style>
+
 </head>
+
+
 <body>
 
-<!-- particle container -->
-<div id="particulas" aria-hidden="true"></div>
 
-<!-- overlay for portrait orientation -->
-<div id="rotateOverlay" role="alert" aria-live="polite">
-  <p>Deixe o celular deitado para funcionar. O site está em desenvolvimento e por enquanto só funciona em modo paisagem (tela deitada).</p>
+<div class="nevoa"></div>
+
+
+<div class="container">
+
+
+<h1>☠ SOBREVIVÊNCIA ZUMBI ☠</h1>
+
+
+<p>
+O mundo acabou. Agora você precisa sobreviver.
+</p>
+
+
+
+<button onclick="jogar()">
+🎮 JOGAR
+</button>
+
+
+<button onclick="personagem()">
+🧍 PERSONAGEM
+</button>
+
+
+<button onclick="configuracoes()">
+⚙️ CONFIGURAÇÕES
+</button>
+
+
+<button onclick="comoJogar()">
+📖 COMO JOGAR
+</button>
+
+
+
 </div>
 
-<!-- menu / buttons -->
-<div class="menu" id="menu">
-  <div class="titulo">O Reino Perdido</div>
-  <button class="botao" data-speech="Iniciando o jogo. Boa sorte, aventureiro!">Jogar</button>
-  <button class="botao" data-speech="Abrindo configurações. Ajuste preferências do jogo aqui.">Configurações</button>
-  <button class="botao" data-speech="Saindo. Até a próxima!">Sair</button>
-</div>
 
-<!-- icons example -->
-<div class="icones">
-  <div class="icone" title="Som" id="toggleSound">🔊</div>
-  <div class="icone" title="Ajuda" id="help">❓</div>
-</div>
-
-<!-- footer reward -->
-<div class="rodape">
-  <button class="recompensa" id="reward" data-speech="Você ganhou uma recompensa! Parabéns.">Recompensa</button>
-</div>
 
 <script>
-// --- Orientation handling: only allow interaction in landscape ---
-const rotateOverlay = document.getElementById('rotateOverlay');
-const bodyEl = document.body;
 
-function isLandscape(){
-  // prefer matchMedia but fallback to width/height
-  try{
-    return window.matchMedia && window.matchMedia('(orientation: landscape)').matches || window.innerWidth > window.innerHeight;
-  }catch(e){
-    return window.innerWidth > window.innerHeight;
-  }
+
+function jogar(){
+
+window.location.href="jogo.html";
+
 }
 
-function updateOrientation(){
-  if(!isLandscape()){
-    bodyEl.classList.add('portrait');
-    rotateOverlay.style.display = 'flex';
-    // pause speech
-    if(window.speechSynthesis) window.speechSynthesis.cancel();
-  }else{
-    bodyEl.classList.remove('portrait');
-    rotateOverlay.style.display = 'none';
-  }
+
+function personagem(){
+
+window.location.href="personagem.html";
+
 }
 
-window.addEventListener('resize', updateOrientation);
-window.addEventListener('orientationchange', updateOrientation);
-// initial
-updateOrientation();
 
-// --- Buttons that "falam" (text-to-speech) ---
-const buttons = document.querySelectorAll('.botao, .recompensa, .icone');
-let soundEnabled = true;
+function configuracoes(){
 
-function speak(text){
-  if(!soundEnabled) return;
-  if(!('speechSynthesis' in window)) return;
-  window.speechSynthesis.cancel();
-  const u = new SpeechSynthesisUtterance(text);
-  u.lang = 'pt-BR';
-  u.rate = 1;
-  u.pitch = 1;
-  window.speechSynthesis.speak(u);
+window.location.href="configuracoes.html";
+
 }
 
-buttons.forEach(btn => {
-  btn.addEventListener('click', (e) => {
-    if(bodyEl.classList.contains('portrait')) return; // do nothing in portrait
 
-    // prefer data-speech attribute, fallback to textContent
-    const text = btn.dataset && btn.dataset.speech ? btn.dataset.speech : btn.textContent.trim();
-    // small UI feedback
-    btn.classList.add('active');
-    setTimeout(()=>btn.classList.remove('active'),350);
+function comoJogar(){
 
-    // speak
-    speak(text);
+alert(
+"Use WASD para andar.\nClique para atirar.\nSobreviva contra os zumbis!"
+);
 
-    // demo behavior for buttons (you can replace with actual navigation)
-    if(btn.id === 'toggleSound'){
-      soundEnabled = !soundEnabled;
-      btn.textContent = soundEnabled ? '🔊' : '🔇';
-    }
-    if(btn.id === 'help'){
-      alert('Ajuda: Toque em Jogar para iniciar. Gire o celular para modo paisagem se estiver em pé.');
-    }
-    if(btn.id === 'reward'){
-      // small confetti-like feedback (just visual)
-      btn.style.transform = 'translateY(-6px)';
-      setTimeout(()=>btn.style.transform = '', 300);
-    }
-
-  });
-});
-
-// --- Simple particle generator to keep visual behavior similar to original ---
-const particlesContainer = document.getElementById('particulas');
-function createParticles(count){
-  particlesContainer.innerHTML = '';
-  for(let i=0;i<count;i++){
-    const p = document.createElement('div');
-    p.className = 'particula';
-    const left = Math.random()*100;
-    p.style.left = left + '%';
-    const size = 2 + Math.random()*6;
-    p.style.width = size + 'px';
-    p.style.height = size + 'px';
-    const duration = 8 + Math.random()*18;
-    p.style.animationDuration = duration + 's';
-    const delay = -Math.random()*20;
-    p.style.animationDelay = delay + 's';
-    particlesContainer.appendChild(p);
-  }
 }
 
-// create fewer particles on small screens
-const particleCount = Math.max(12, Math.floor((window.innerWidth*window.innerHeight)/100000));
-createParticles(particleCount);
-
-// Recreate particles on resize (but debounced)
-let resizeTimer;
-window.addEventListener('resize', ()=>{
-  clearTimeout(resizeTimer);
-  resizeTimer = setTimeout(()=>{
-    const count = Math.max(12, Math.floor((window.innerWidth*window.innerHeight)/100000));
-    createParticles(count);
-  },250);
-});
-
-// Accessibility: allow Enter/Space to activate buttons
-document.addEventListener('keydown', (e)=>{
-  if(e.key === 'Enter' || e.key === ' '){
-    const active = document.activeElement;
-    if(active && (active.classList.contains('botao') || active.classList.contains('recompensa') || active.classList.contains('icone'))){
-      active.click();
-      e.preventDefault();
-    }
-  }
-});
 
 </script>
+
 
 </body>
 </html>
