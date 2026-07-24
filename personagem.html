@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Escolher Personagem</title>
+
+
+<style>
+
+body{
+
+margin:0;
+
+height:100vh;
+
+background:
+linear-gradient(
+rgba(0,0,0,.8),
+rgba(0,0,0,.95)
+),
+url("https://images.unsplash.com/photo-1518709268805-4e9042af9f23")
+center/cover;
+
+
+font-family:Arial;
+
+color:white;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+}
+
+
+.container{
+
+text-align:center;
+
+}
+
+
+h1{
+
+color:red;
+
+font-size:45px;
+
+text-shadow:0 0 20px black;
+
+}
+
+
+
+.personagens{
+
+display:flex;
+
+gap:20px;
+
+justify-content:center;
+
+flex-wrap:wrap;
+
+}
+
+
+
+.card{
+
+
+background:#222;
+
+border:2px solid red;
+
+border-radius:15px;
+
+width:220px;
+
+padding:20px;
+
+cursor:pointer;
+
+transition:.3s;
+
+
+}
+
+
+
+.card:hover{
+
+transform:scale(1.1);
+
+background:#500;
+
+}
+
+
+
+.card img{
+
+width:120px;
+
+height:120px;
+
+border-radius:50%;
+
+object-fit:cover;
+
+}
+
+
+
+.selecionado{
+
+box-shadow:0 0 25px red;
+
+}
+
+
+
+button{
+
+
+margin-top:30px;
+
+padding:15px 50px;
+
+font-size:22px;
+
+background:red;
+
+color:white;
+
+border:none;
+
+border-radius:10px;
+
+cursor:pointer;
+
+
+}
+
+
+</style>
+
+</head>
+
+
+<body>
+
+
+
+<div class="container">
+
+
+<h1>🧍 ESCOLHA SEU SOBREVIVENTE</h1>
+
+
+
+<div class="personagens">
+
+
+
+<div class="card" onclick="escolher(this,'Rafael')">
+
+<img src="https://i.imgur.com/8Km9tLL.png">
+
+<h2>Rafael</h2>
+
+<p>
+❤️ Vida: 100
+<br>
+⚡ Velocidade: Normal
+<br>
+🔫 Habilidade: Mira precisa
+</p>
+
+</div>
+
+
+
+
+<div class="card" onclick="escolher(this,'Luna')">
+
+<img src="https://i.imgur.com/4AiXzf8.png">
+
+<h2>Luna</h2>
+
+<p>
+❤️ Vida: 90
+<br>
+⚡ Velocidade: Alta
+<br>
+🔪 Habilidade: Esquiva
+</p>
+
+</div>
+
+
+
+
+
+<div class="card" onclick="escolher(this,'Max')">
+
+<img src="https://i.imgur.com/2yaf2wb
