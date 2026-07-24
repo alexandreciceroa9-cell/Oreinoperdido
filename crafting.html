@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Crafting</title>
+
+
+<style>
+
+body{
+
+margin:0;
+
+height:100vh;
+
+background:
+linear-gradient(
+rgba(0,0,0,.8),
+rgba(0,0,0,.95)
+),
+url("https://images.unsplash.com/photo-1518709268805-4e9042af9f23")
+center/cover;
+
+
+font-family:Arial;
+
+color:white;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+}
+
+
+
+.container{
+
+width:450px;
+
+background:#111;
+
+padding:25px;
+
+border:2px solid red;
+
+border-radius:15px;
+
+text-align:center;
+
+}
+
+
+
+h1{
+
+color:red;
+
+font-size:45px;
+
+}
+
+
+
+.recursos{
+
+color:gold;
+
+font-size:20px;
+
+margin:20px;
+
+}
+
+
+
+.item{
+
+background:#222;
+
+padding:15px;
+
+margin:15px;
+
+border-radius:10px;
+
+border:1px solid #555;
+
+}
+
+
+
+button{
+
+width:90%;
+
+padding:12px;
+
+font-size:18px;
+
+background:red;
+
+color:white;
+
+border:none;
+
+border-radius:10px;
+
+cursor:pointer;
+
+}
+
+
+
+button:hover{
+
+background:#900;
+
+}
+
+
+
+</style>
+
+
+</head>
+
+
+<body>
+
+
+<div class="container">
+
+
+<h1>🔨 CRAFTING</h1>
+
+
+
+<div class="recursos">
+
+🪵 Madeira:
+<span id="madeira">20</span>
+
+<br>
+
+🔩 Metal:
+<span id="metal">15</span>
+
+<br>
+
+🧪 Componentes:
+<span id="pecas">10</span>
+
+</div>
+
+
+
+
+<div class="item">
+
+🔋 Munição
+
+<br>
+
+Custo:
+
+5 Metal
+
+<br><br>
+
+<button onclick="criar('municao')">
+
+CRIAR
+
+</button>
+
+</div>
+
+
+
+
+<div class="item">
+
+🧪 Kit Médico
+
+<br>
+
+Custo:
+
+5 Componentes
+
+<br><br>
+
+<button onclick="criar('cura')">
+
+CRIAR
+
+</button>
+
+</div>
+
+
+
+
+<div class="item">
+
+🔫 Arma Improvisada
+
+<br>
+
+Custo:
+
+10 Madeira + 10 Metal
+
+<br><br>
+
+<button onclick="criar('arma')">
+
+CRIAR
+
+</button>
+
+</div>
+
+
+
+
+<button onclick="voltar()">
+
+🔙 VOLTAR
+
+</button>
+
+
+
+</div>
+
+
+
+<script>
+
+
+let madeira = 20;
+
+let metal = 15;
+
+let pecas = 10;
+
+
+
+function atualizar(){
+
+
+document.getElementById("madeira").innerHTML=
+madeira;
+
+
+document.getElementById("metal").innerHTML=
+metal;
+
+
+document.getElementById("pecas").innerHTML=
+pecas;
+
+
+}
+
+
+
+
+function criar(item){
+
+
+
+if(item=="municao"){
+
+
+if(metal>=5){
+
+metal-=5;
+
+alert("Munição criada!");
+
+}
+
+else{
+
+alert("Falta metal!");
+
+}
+
+}
+
+
+
+if(item=="cura"){
+
+
+if(pecas>=5){
+
+pecas-=5;
+
+alert("Kit médico criado!");
+
+}
+
+else{
+
+alert("Faltam componentes!");
+
+}
+
+}
+
+
+
+if(item=="arma"){
+
+
+if(madeira>=10 && metal>=10){
+
+madeira-=10;
+
+metal-=10;
+
+alert("Arma criada!");
+
+}
+
+else{
+
+alert("Materiais insuficientes!");
+
+}
+
+}
+
+
+
+atualizar();
+
+
+}
+
+
+
+
+function voltar(){
+
+location.href="index.html";
+
+}
+
+
+
+</script>
+
+
+</body>
+
+</html>
