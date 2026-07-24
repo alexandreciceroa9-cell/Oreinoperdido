@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Tipos de Zumbis</title>
+
+<style>
+
+body{
+
+margin:0;
+
+height:100vh;
+
+background:
+linear-gradient(
+rgba(0,0,0,.8),
+rgba(0,0,0,.95)
+),
+url("https://images.unsplash.com/photo-1518709268805-4e9042af9f23")
+center/cover;
+
+font-family:Arial;
+
+color:white;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+}
+
+
+.container{
+
+width:500px;
+
+background:#111;
+
+padding:25px;
+
+border:2px solid red;
+
+border-radius:15px;
+
+text-align:center;
+
+}
+
+
+h1{
+
+color:red;
+
+font-size:45px;
+
+}
+
+
+
+.zumbi{
+
+background:#222;
+
+border:1px solid #555;
+
+padding:15px;
+
+margin:15px;
+
+border-radius:10px;
+
+}
+
+
+
+.comum{
+
+color:#00ff55;
+
+}
+
+
+.rapido{
+
+color:#00ffff;
+
+}
+
+
+.forte{
+
+color:orange;
+
+}
+
+
+.chefe{
+
+color:red;
+
+}
+
+
+
+button{
+
+width:90%;
+
+padding:15px;
+
+margin-top:15px;
+
+font-size:20px;
+
+background:red;
+
+color:white;
+
+border:none;
+
+border-radius:10px;
+
+cursor:pointer;
+
+}
+
+
+
+button:hover{
+
+background:#900;
+
+}
+
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="container">
+
+
+<h1>🧟 ZUMBIS</h1>
+
+
+
+<div class="zumbi">
+
+<h2 class="comum">
+
+🧟 Zumbi Comum
+
+</h2>
+
+❤️ Vida: 50
+
+<br>
+
+⚔️ Dano: 10
+
+<br>
+
+🏆 Recompensa: 5 moedas
+
+</div>
+
+
+
+
+<div class="zumbi">
+
+<h2 class="rapido">
+
+⚡ Zumbi Rápido
+
+</h2>
+
+❤️ Vida: 70
+
+<br>
+
+⚔️ Dano: 15
+
+<br>
+
+🏆 Recompensa: 15 moedas
+
+</div>
+
+
+
+
+<div class="zumbi">
+
+<h2 class="forte">
+
+💪 Zumbi Pesado
+
+</h2>
+
+❤️ Vida: 200
+
+<br>
+
+⚔️ Dano: 30
+
+<br>
+
+🏆 Recompensa: 50 moedas
+
+</div>
+
+
+
+
+<div class="zumbi">
+
+<h2 class="chefe">
+
+👑 Rei Zumbi
+
+</h2>
+
+❤️ Vida: 1000
+
+<br>
+
+⚔️ Dano: 80
+
+<br>
+
+🏆 Recompensa: 500 moedas
+
+</div>
+
+
+
+
+<button onclick="voltar()">
+
+🔙 VOLTAR
+
+</button>
+
+
+
+</div>
+
+
+
+<script>
+
+
+function voltar(){
+
+location.href="index.html";
+
+}
+
+
+</script>
+
+
+
+</body>
+
+</html>
