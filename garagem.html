@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Garagem</title>
+
+
+<style>
+
+body{
+
+margin:0;
+
+height:100vh;
+
+background:
+linear-gradient(
+rgba(0,0,0,.8),
+rgba(0,0,0,.95)
+),
+url("https://images.unsplash.com/photo-1503376780353-7e6692767b70")
+center/cover;
+
+
+font-family:Arial;
+
+color:white;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+}
+
+
+
+.container{
+
+width:450px;
+
+background:#111;
+
+padding:25px;
+
+border-radius:15px;
+
+border:2px solid red;
+
+text-align:center;
+
+}
+
+
+
+h1{
+
+color:red;
+
+font-size:45px;
+
+}
+
+
+
+.veiculo{
+
+background:#222;
+
+border:1px solid #555;
+
+border-radius:10px;
+
+padding:15px;
+
+margin:15px;
+
+}
+
+
+
+button{
+
+width:90%;
+
+padding:15px;
+
+margin:10px;
+
+font-size:20px;
+
+background:red;
+
+color:white;
+
+border:none;
+
+border-radius:10px;
+
+cursor:pointer;
+
+}
+
+
+
+button:hover{
+
+background:#900;
+
+}
+
+
+
+.info{
+
+color:gold;
+
+font-size:20px;
+
+}
+
+
+
+</style>
+
+
+</head>
+
+
+<body>
+
+
+<div class="container">
+
+
+<h1>🚗 GARAGEM</h1>
+
+
+
+<div class="info">
+
+⛽ Combustível:
+<span id="combustivel">100</span>%
+
+</div>
+
+
+
+
+<div class="veiculo">
+
+🚙 Jipe Militar
+
+<br><br>
+
+❤️ Resistência: 200
+
+<br>
+
+⚡ Velocidade: Alta
+
+<br>
+
+🧟 Proteção contra zumbis
+
+<br><br>
+
+<button onclick="usarCarro('Jipe Militar')">
+
+USAR
+
+</button>
+
+</div>
+
+
+
+
+<div class="veiculo">
+
+🏍️ Moto
+
+<br><br>
+
+❤️ Resistência: 80
+
+<br>
+
+⚡ Velocidade: Muito Alta
+
+<br>
+
+⛽ Gasta pouco combustível
+
+<br><br>
+
+<button onclick="usarCarro('Moto')">
+
+USAR
+
+</button>
+
+</div>
+
+
+
+
+<div class="veiculo">
+
+🚚 Caminhão
+
+<br><br>
+
+❤️ Resistência: 400
+
+<br>
+
+⚡ Velocidade: Baixa
+
+<br>
+
+📦 Transporta itens
+
+<br><br>
+
+<button onclick="usarCarro('Caminhão')">
+
+USAR
+
+</button>
+
+</div>
+
+
+
+
+<button onclick="voltar()">
+
+🔙 VOLTAR
+
+</button>
+
+
+
+</div>
+
+
+
+<script>
+
+
+let combustivel =
+Number(localStorage.getItem("combustivel")) || 100;
+
+
+document.getElementById("combustivel").innerHTML =
+combustivel;
+
+
+
+
+function usarCarro(nome){
+
+
+if(combustivel <= 0){
+
+alert("Sem combustível!");
+
+return;
+
+}
+
+
+
+combustivel -= 10;
+
+
+
+localStorage.setItem(
+"combustivel",
+combustivel
+);
+
+
+
+document.getElementById("combustivel").innerHTML =
+combustivel;
+
+
+
+localStorage.setItem(
+"veiculo",
+nome
+);
+
+
+
+alert(
+"Veículo selecionado: " + nome
+);
+
+
+
+}
+
+
+
+function voltar(){
+
+location.href="index.html";
+
+}
+
+
+
+</script>
+
+
+</body>
+
+</html>
