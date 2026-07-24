@@ -1,35 +1,117 @@
-<button onclick="jogar()">
-🎮 JOGAR
-</button>
-
-<button onclick="personagem()">
-🧍 PERSONAGEM
-</button>
-
-<button onclick="configuracoes()">
-⚙️ CONFIGURAÇÕES
-</button>
-
-<button onclick="loja()">
-🛒 LOJA
-</button>
-
-<script>
-
-function jogar(){
-    window.location.href="jogo.html";
+/* Configurações Globais */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-function personagem(){
-    window.location.href="personagem.html";
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #111;
+    color: #fff;
+    overflow: hidden;
+    height: 100vh;
+    width: 100vw;
 }
 
-function configuracoes(){
-    window.location.href="configuracoes.html";
+/* Fundo do Site usando a imagem que você enviou */
+#container-jogo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+    /* Aqui está o link direto para a imagem do topo da nossa conversa */
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url('https://prodia.xyz') no-repeat center center;
+    background-size: cover;
 }
 
-function loja(){
-    window.location.href="loja.html";
+/* Cabeçalho e Placar */
+header {
+    text-align: center;
+    margin-bottom: 15px;
+    text-shadow: 3px 3px 10px rgba(0, 0, 0, 1);
 }
 
-</script>
+h1 {
+    font-size: 2.5rem;
+    color: #fff;
+    letter-spacing: 2px;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+#placar {
+    font-size: 1.2rem;
+    font-weight: bold;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 8px 20px;
+    border-radius: 20px;
+    border: 2px solid #ff3333;
+    display: inline-block;
+    box-shadow: 0 0 15px rgba(255, 51, 51, 0.3);
+}
+
+#pontos { color: #ffeb3b; }
+#vida { color: #ff3333; }
+
+/* Tela do Jogo (Canvas onde os zumbis vão andar) */
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+canvas {
+    background-color: rgba(15, 15, 15, 0.85); /* Fundo escuro semi-transparente para ver a imagem atrás */
+    border: 3px solid #ff3333;
+    border-radius: 8px;
+    box-shadow: 0 0 30px rgba(255, 51, 51, 0.5);
+    max-width: 95vw;
+    max-height: 70vh;
+}
+
+/* Controle de Orientação (Aviso Celular em Pé) */
+#aviso-orientacao {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #111;
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.conteudo-aviso span {
+    font-size: 4rem;
+    display: block;
+    animation: girar 2s infinite ease-in-out;
+}
+
+.conteudo-aviso p {
+    font-size: 1.5rem;
+    margin-top: 15px;
+    padding: 0 20px;
+}
+
+/* Animação do ícone girando */
+@keyframes girar {
+    0% { transform: rotate(0deg); }
+    50% { transform: rotate(90deg); }
+    100% { transform: rotate(0deg); }
+}
+
+/* Se a tela estiver em pé, esconde o jogo e mostra o aviso */
+@media (orientation: portrait) {
+    #aviso-orientacao {
+        display: flex;
+    }
+    #container-jogo {
+        display: none;
+    }
+}
