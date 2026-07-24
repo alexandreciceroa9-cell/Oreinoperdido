@@ -1,250 +1,35 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Sobrevivência Zumbi</title>
-
-<style>
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Arial, sans-serif;
-}
-
-
-body{
-
-    height:100vh;
-    overflow:hidden;
-
-    background:
-    linear-gradient(
-    rgba(0,0,0,0.75),
-    rgba(0,0,0,0.95)
-    ),
-    url("https://images.unsplash.com/photo-1518709268805-4e9042af9f23")
-    center/cover;
-
-    display:flex;
-    justify-content:center;
-    align-items:center;
-
-    color:white;
-
-}
-
-
-.container{
-
-    text-align:center;
-    animation:entrada 2s;
-
-}
-
-
-h1{
-
-    font-size:55px;
-    color:#ff0000;
-
-    text-shadow:
-    0 0 10px red,
-    0 0 30px black;
-
-    margin-bottom:15px;
-
-}
-
-
-p{
-
-    color:#ccc;
-    font-size:20px;
-    margin-bottom:40px;
-
-}
-
-
-
-button{
-
-    width:280px;
-
-    padding:15px;
-
-    margin:12px;
-
-    font-size:22px;
-
-    color:white;
-
-    background:#111;
-
-    border:2px solid #ff0000;
-
-    border-radius:12px;
-
-    cursor:pointer;
-
-    transition:0.3s;
-
-}
-
-
-
-button:hover{
-
-    background:#ff0000;
-
-    transform:scale(1.1);
-
-}
-
-
-
-@keyframes entrada{
-
-from{
-
-opacity:0;
-transform:translateY(-50px);
-
-}
-
-to{
-
-opacity:1;
-transform:translateY(0);
-
-}
-
-}
-
-
-
-.nevoa{
-
-position:absolute;
-
-width:200%;
-height:100%;
-
-background:
-radial-gradient(
-transparent,
-rgba(0,0,0,.8)
-);
-
-animation:mover 10s infinite alternate;
-
-}
-
-
-
-@keyframes mover{
-
-from{
-
-transform:translateX(-20%);
-
-}
-
-to{
-
-transform:translateX(20%);
-
-}
-
-}
-
-
-</style>
-
-</head>
-
-
-<body>
-
-
-<div class="nevoa"></div>
-
-
-<div class="container">
-
-
-<h1>☠ SOBREVIVÊNCIA ZUMBI ☠</h1>
-
-
-<p>
-O mundo acabou. Agora você precisa sobreviver.
-</p>
-
-
-
 <button onclick="jogar()">
 🎮 JOGAR
 </button>
-
 
 <button onclick="personagem()">
 🧍 PERSONAGEM
 </button>
 
-
 <button onclick="configuracoes()">
 ⚙️ CONFIGURAÇÕES
 </button>
 
-
-<button onclick="comoJogar()">
-📖 COMO JOGAR
+<button onclick="loja()">
+🛒 LOJA
 </button>
-
-
-
-</div>
-
-
 
 <script>
 
-
 function jogar(){
-
-window.location.href="jogo.html";
-
+    window.location.href="jogo.html";
 }
-
 
 function personagem(){
-
-window.location.href="personagem.html";
-
+    window.location.href="personagem.html";
 }
-
 
 function configuracoes(){
-
-window.location.href="configuracoes.html";
-
+    window.location.href="configuracoes.html";
 }
 
-
-function comoJogar(){
-
-alert(
-"Use WASD para andar.\nClique para atirar.\nSobreviva contra os zumbis!"
-);
-
+function loja(){
+    window.location.href="loja.html";
 }
-
 
 </script>
-
-
-</body>
-</html>
