@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Inventário</title>
+
+
+<style>
+
+body{
+
+margin:0;
+
+height:100vh;
+
+background:
+linear-gradient(
+rgba(0,0,0,.8),
+rgba(0,0,0,.95)
+),
+url("https://images.unsplash.com/photo-1518709268805-4e9042af9f23")
+center/cover;
+
+font-family:Arial;
+
+color:white;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+}
+
+
+.container{
+
+width:400px;
+
+background:#111;
+
+border:2px solid red;
+
+border-radius:15px;
+
+padding:25px;
+
+text-align:center;
+
+}
+
+
+
+h1{
+
+color:red;
+
+font-size:40px;
+
+}
+
+
+
+.status{
+
+font-size:22px;
+
+margin:20px;
+
+color:gold;
+
+}
+
+
+
+.item{
+
+background:#222;
+
+border:1px solid #555;
+
+padding:15px;
+
+margin:10px;
+
+border-radius:10px;
+
+}
+
+
+
+button{
+
+width:90%;
+
+padding:15px;
+
+margin-top:15px;
+
+font-size:20px;
+
+background:red;
+
+color:white;
+
+border:none;
+
+border-radius:10px;
+
+cursor:pointer;
+
+}
+
+
+
+button:hover{
+
+background:#900;
+
+}
+
+
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="container">
+
+
+<h1>🎒 INVENTÁRIO</h1>
+
+
+
+<div class="status">
+
+🪙 Moedas:
+<span id="moedas">500</span>
+
+<br><br>
+
+❤️ Vida:
+<span id="vida">100</span>
+
+</div>
+
+
+
+<div class="item">
+
+🔫 Arma equipada
+
+<br>
+
+Pistola
+
+<br>
+
+Dano: 20
+
+</div>
+
+
+
+<div class="item">
+
+🧪 Kit Médico
+
+<br>
+
+Quantidade:
+<span id="cura">3</span>
+
+</div>
+
+
+
+<div class="item">
+
+💣 Granada
+
+<br>
+
+Quantidade:
+2
+
+</div>
+
+
+
+<div class="item">
+
+🎒 Espaço da mochila
+
+<br>
+
+5 / 20 itens
+
+</div>
+
+
+
+<button onclick="usarCura()">
+
+❤️ Usar Kit Médico
+
+</button>
+
+
+
+<button onclick="voltar()">
+
+🔙 Voltar ao Menu
+
+</button>
+
+
+
+</div>
+
+
+
+<script>
+
+
+let moedas =
+localStorage.getItem("moedas") || 500;
+
+
+document.getElementById("moedas").innerHTML =
+moedas;
+
+
+
+let vida=100;
+
+let cura=3;
+
+
+
+function usarCura(){
+
+
+if(cura>0 && vida<100){
+
+
+vida+=30;
+
+
+if(vida>100){
+
+vida=100;
+
+}
+
+
+cura--;
+
+
+document.getElementById("vida").innerHTML=
+vida;
+
+
+document.getElementById("cura").innerHTML=
+cura;
+
+
+alert("Você recuperou vida!");
+
+
+
+}else{
+
+
+alert("Não é possível usar agora!");
+
+}
+
+
+}
+
+
+
+function voltar(){
+
+location.href="index.html";
+
+}
+
+
+</script>
+
+
+</body>
+
+</html>
